@@ -30,13 +30,14 @@ class RBT{
 						
 						//final position of robot after set of movements
 						Console.WriteLine("Position:"countF++ + "," + countB++ + "," + countL++ + "," + countR++)
-						Position = COnsole.ReadLine();
+						Position = Console.ReadLine();
 				}
-		}
-		
 		// Main porgram to test above
 		pubic static void Main()
 		{
 		String move = "FLFFBBR";
 		finalPosition(move);
 		}
+		}
+		
+		
