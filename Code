@@ -1,6 +1,4 @@
-//c# implementation to find the robot's distance from its starting point
-//robot's distance will be the minimum amount of units to go back to its starting point
-//Rextester.Program.Main is the entry point for your code. Don't change it. --------For testing the code
+//Rextester.Program.Main is the entry point for your code. Don't change it.
 //Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5
 
 using System;
@@ -75,10 +73,10 @@ namespace Rextester
             //Your code goes here
             String move = "F,R,B,B,L,B,B,B";
             finalPosition(move);
-            int dest = 0; 
+            int dest = 4; 
         Console.WriteLine("No. of steps required"+ 
                              " to reach " + dest +  
-                      " is " + steps(0, 0, dest)); 
+                      " is " + steps(0, 0,dest)); 
             Console.WriteLine("Hello, world!");
         }
     }
