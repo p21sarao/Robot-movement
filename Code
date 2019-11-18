@@ -1,43 +1,85 @@
 //c# implementation to find the robot's distance from its starting point
 //robot's distance will be the minimum amount of units to go back to its starting point
-using System;
+//Rextester.Program.Main is the entry point for your code. Don't change it. --------For testing the code
+//Compiler version 4.0.30319.17929 for Microsoft (R) .NET Framework 4.5
 
-class RBT{
-		// function to find the robot's distance from its starting point
-		// the minimum distance to go back to its starting point		
-			static void position(String move)
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+
+namespace Rextester
+{
+    public class Program
+    {
+        static void finalPosition(String move)
 				{
-					int D = move.Distance;
-					string countF = 0 , countB = 0;
-					string countL = 0, countR = 0;
+					int l = move.Length;
+					int countF = 0 , countB = 0;
+					int countL = 0, countR = 0;
+                    //string Position = 0;
 					
 					// the instruction string 'move'
-					for(int i = 0; i >= 1; i++)
+					for(int i = 0; i < l; i++)
 						{
 							int n = 0;                                              // for the number of forward and backward movements
 							if (move [i] == 'F')
+                               //Console.ReadLine(n);
 							countF++;
 							 
-							elseif (move [i] == 'B')
-							 countB++;
+                        else if (move [i] == 'B')
+                            //Console.ReadLine(n);
+                            countB++;
 							 
-							elseif (move [i] == 'L')
-							 countL++;
+                        else if (move [i] == 'L')
+                                countL++;
 							
-							elseif (move [i] == 'R')
-							 countR++;
+                        else if (move [i] == 'R')
+                                countR++;
 						}
 						
 						//final position of robot after set of movements
-						Console.WriteLine("Position:"countF++ + "," + countB++ + "," + countL++ + "," + countR++)
-						Position = Console.ReadLine();
+               			Console.WriteLine("Final Position: (" + 
+                         (countR - countL) + ", " + 
+                         (countF - countB) + ")");
+                         //Console.WriteLine("Going back in" +   "steps");
+						//Console.ReadLine() = Position;
+            
+            
 				}
-		// Main porgram to test above
-		pubic static void Main()
-		{
-		String move = "FLFFBBR";
-		finalPosition(move);
-		}
-		}
-		
-		
+        static int steps(int source, int step, 
+                                int dest) 
+    { 
+        // base cases 
+        if (Math.Abs(source) > (dest))  
+            return int.MaxValue; 
+      
+        if (source == dest)      
+            return step; 
+  
+        // at each point we can go either way 
+  
+        // if we go on positive side 
+        int pos = steps(source + step + 1, 
+                        step + 1, dest); 
+  
+        // if we go on negative side 
+        int neg = steps(source - step - 1,  
+                        step + 1, dest); 
+  
+        // minimum of both cases 
+        return Math.Min(pos, neg); 
+    }
+        public static void Main(string[] args)
+        {
+            //Your code goes here
+            String move = "F,R,B,B,L,B,B,B";
+            finalPosition(move);
+            int dest = 0; 
+        Console.WriteLine("No. of steps required"+ 
+                             " to reach " + dest +  
+                      " is " + steps(0, 0, dest)); 
+            Console.WriteLine("Hello, world!");
+        }
+    }
+}
