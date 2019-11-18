@@ -1,0 +1,42 @@
+//c# implementation to find the robot's distance from its starting point
+//robot's distance will be the minimum amount of units to go back to its starting point
+using System;
+
+class RBT{
+		// function to find the robot's distance from its starting point
+		// the minimum distance to go back to its starting point		
+			static void position(String move)
+				{
+					int D = move.Distance;
+					string countF = 0 , countB = 0;
+					string countL = 0, countR = 0;
+					
+					// the instruction string 'move'
+					for(int i = 0; i >= 1; i++)
+						{
+							int n = 0;                                              // for the number of forward and backward movements
+							if (move [i] == 'F')
+							countF++;
+							 
+							elseif (move [i] == 'B')
+							 countB++;
+							 
+							elseif (move [i] == 'L')
+							 countL++;
+							
+							elseif (move [i] == 'R')
+							 countR++;
+						}
+						
+						//final position of robot after set of movements
+						Console.WriteLine("Position:"countF++ + "," + countB++ + "," + countL++ + "," + countR++)
+						Position = COnsole.ReadLine();
+				}
+		}
+		
+		// Main porgram to test above
+		pubic static void Main()
+		{
+		String move = "FLFFBBR";
+		finalPosition(move);
+		}
